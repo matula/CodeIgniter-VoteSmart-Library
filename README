@@ -1,0 +1,4 @@
+VoteSmart API CodeIgniter Library
+Usage:
+$this->load->library('votesmart');
+$this->votesmart->query('CandidateBio.getBio',array('candidateId' => 9026));
