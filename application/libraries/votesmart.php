@@ -40,25 +40,25 @@ class Votesmart {
         public function query($method, $args = Array()) {
                 $terms = "";
                 if(!empty($args)) {
-					foreach($args as $n => $v) {
-						$terms .= '&' . $n . '=' . $v; 
-					}
-				}
-				$this->iface = $this->apiserver . "/" . $method . "?key=" . $this->key . "&o=" . $this->output  . $terms;
+			foreach($args as $n => $v) {
+				$terms .= '&' . $n . '=' . $v; 
+			}
+		}
+		$this->iface = $this->apiserver . "/" . $method . "?key=" . $this->key . "&o=" . $this->output  . $terms;
 		
                 if (!$this->xml = file_get_contents($this->iface)) {
-					return false;		
+			return false;		
                 } else {
-                		if($this->output == "JSON") {
-                			// If using JSON, decode it and put it into an object
-                			$this->xmlObj = json_decode($this->xml); 
+                	if($this->output == "JSON") {
+                		// If using JSON, decode it and put it into an object
+                		$this->xmlObj = json_decode($this->xml); 
                         	return $this->xmlObj;	
-                		} else {
+                	} else {
                         	// Default: Use  SimpleXML to drop the whole XML
                        	 	// output into an object we can later interact with easily
                         	$this->xmlObj = new SimpleXMLElement($this->xml, LIBXML_NOCDATA); 
                         	return $this->xmlObj;	
-                		}	
+                	}	
                 }      
         }
 }
