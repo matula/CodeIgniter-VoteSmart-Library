@@ -1,4 +1,5 @@
-# VoteSmart API CodeIgniter Library
+VoteSmart API CodeIgniter Library
+=================================
 
 ## Usage
 
